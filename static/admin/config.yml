@@ -21,4 +21,10 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Cover Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Image Description', name: 'hero_image_alt', widget: 'string' }
+      - { label: 'Video Cover URL', name: 'video', widget: 'string', required: false }
+      - { label: 'Video Title', name: 'video_title', widget: 'string' }
+      - { label: 'Cover Title', name: 'hero_title', widget: 'string', required: false }
+
       - { label: 'Featured Image', name: 'image', widget: 'image', required: false }
