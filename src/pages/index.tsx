@@ -69,7 +69,8 @@ const BlogIndex = ({ data }: Props) => {
       {/*</ol>*/}
       <HeroVideo
         videoSrcUrl={'https://www.youtube.com/watch?v=LXb3EKWsInQ'}
-        videoTitle={'Video Hero'}>
+        videoTitle={'Video Hero'}
+      >
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
       </HeroVideo>

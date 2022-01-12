@@ -29,7 +29,8 @@ const NavbarItem = ({ url, text, children, className }: Props) => {
     <li
       className={styles.navLinkItem || className}
       onMouseEnter={openDropdownMenu}
-      onMouseLeave={closeDropdownMenu}>
+      onMouseLeave={closeDropdownMenu}
+    >
       <Link to={url}>
         {text}
         {/*{children}*/}

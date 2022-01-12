@@ -13,7 +13,8 @@ const DropdownMenu = ({ children }: Props) => {
       <motion.span
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}>
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
         <div className={styles.blur} />
         <ul className={styles.dropdownItems}>{children}</ul>
       </motion.span>
