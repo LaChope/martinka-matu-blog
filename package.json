@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Max Chopart <max.chopart@gmail.com>",
   "dependencies": {
+    "framer-motion": "^5.5.7",
     "gatsby": "^4.4.0",
     "gatsby-plugin-feed": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",

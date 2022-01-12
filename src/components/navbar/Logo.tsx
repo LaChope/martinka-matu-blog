@@ -8,7 +8,7 @@ import * as styles from '../../styles/Navbar.module.css';
 const Logo = () => {
     const imageData: any = useStaticQuery(graphql`
     {
-      file(relativePath: {eq: "icon.png"}) {
+      file(relativePath: {eq: "gatsby-icon.png"}) {
         childImageSharp {
           gatsbyImageData
         }

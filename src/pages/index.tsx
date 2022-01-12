@@ -1,22 +1,26 @@
 import * as React from "react"
-import {graphql, Link} from "gatsby"
 
 import Bio from "../components/Bio"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/SEO"
+import HeroVideo from "../components/HeroVideo";
+
+// @ts-ignore
+import * as styles from "../styles/Homepage.module.css"
+import {graphql} from "gatsby";
 
 interface Props {
-    data: any,
-    location: string
+    data: any
 }
 
-const BlogIndex = ({data, location}: Props) => {
+const BlogIndex = ({data}: Props) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
+    // const siteTitle = "Martinka Matu Blog Page"
     const posts = data.allMarkdownRemark.nodes
 
     if (posts.length === 0) {
         return (
-            <Layout location={location} title={siteTitle}>
+            <Layout pageTitle={siteTitle}>
                 <SEO title="All posts"/>
                 <Bio/>
                 <p>
@@ -29,41 +33,51 @@ const BlogIndex = ({data, location}: Props) => {
     }
 
     return (
-        <Layout location={location} title={siteTitle}>
+        <Layout pageTitle={siteTitle}>
             <SEO title="All posts"/>
-            <Bio/>
-            <ol style={{listStyle: `none`}}>
-                {posts.map(post => {
-                    const title = post.frontmatter.title || post.fields.slug
+            {/*<Bio/>*/}
+            {/*<ol style={{listStyle: `none`}}>*/}
+            {/*    {posts.map(post => {*/}
+            {/*        const title = post.frontmatter.title || post.fields.slug*/}
 
-                    return (
-                        <li key={post.fields.slug}>
-                            <article
-                                className="post-list-item"
-                                itemScope
-                                itemType="http://schema.org/Article"
-                            >
-                                <header>
-                                    <h2>
-                                        <Link to={post.fields.slug} itemProp="url">
-                                            <span itemProp="headline">{title}</span>
-                                        </Link>
-                                    </h2>
-                                    <small>{post.frontmatter.date}</small>
-                                </header>
-                                <section>
-                                    <p
-                                        dangerouslySetInnerHTML={{
-                                            __html: post.frontmatter.description || post.excerpt,
-                                        }}
-                                        itemProp="description"
-                                    />
-                                </section>
-                            </article>
-                        </li>
-                    )
-                })}
-            </ol>
+            {/*        return (*/}
+            {/*            <li key={post.fields.slug}>*/}
+            {/*                <article*/}
+            {/*                    className="post-list-item"*/}
+            {/*                    itemScope*/}
+            {/*                    itemType="http://schema.org/Article"*/}
+            {/*                >*/}
+            {/*                    <header>*/}
+            {/*                        <h2>*/}
+            {/*                            <Link to={post.fields.slug} itemProp="url">*/}
+            {/*                                <span itemProp="headline">{title}</span>*/}
+            {/*                            </Link>*/}
+            {/*                        </h2>*/}
+            {/*                        <small>{post.frontmatter.date}</small>*/}
+            {/*                    </header>*/}
+            {/*                    <section>*/}
+            {/*                        <p*/}
+            {/*                            dangerouslySetInnerHTML={{*/}
+            {/*                                __html: post.frontmatter.description || post.excerpt,*/}
+            {/*                            }}*/}
+            {/*                            itemProp="description"*/}
+            {/*                        />*/}
+            {/*                    </section>*/}
+            {/*                </article>*/}
+            {/*            </li>*/}
+            {/*        )*/}
+            {/*    })}*/}
+            {/*</ol>*/}
+            <HeroVideo videoSrcUrl={"https://www.youtube.com/watch?v=LXb3EKWsInQ"} videoTitle={"Video Hero"}>
+                <h1>Martinka Matu</h1>
+                <h2>Your trip starts now.</h2>
+            </HeroVideo>
+            <div className={styles.mainSection}>
+                <div className={styles.el1}>Element1</div>
+                <div className={styles.el2}>Element2</div>
+                <div className={styles.el3}>Element3</div>
+                <div className={styles.el4}>Element4</div>
+            </div>
         </Layout>
     )
 }

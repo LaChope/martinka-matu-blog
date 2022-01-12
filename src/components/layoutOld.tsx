@@ -8,7 +8,7 @@ interface Props {
     children: ReactNode
 }
 
-const Layout = ({location, title, children}: Props) => {
+const LayoutOld = ({location, title, children}: Props) => {
     // @ts-ignore
     const rootPath = `${__PATH_PREFIX__}/`
     const isRootPath = location.pathname === rootPath
@@ -41,4 +41,4 @@ const Layout = ({location, title, children}: Props) => {
     )
 }
 
-export default Layout
+export default LayoutOld

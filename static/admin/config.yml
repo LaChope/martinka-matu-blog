@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: LaChope/martinka-matu-blog
   branch: main # Branch to update (optional; defaults to master)
 
 media_folder: static/img
@@ -15,9 +16,10 @@ collections:
     public_folder: ''
     path: '{{title}}/index'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Featured Image', name: 'image', widget: 'image', required: 'false' }

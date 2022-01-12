@@ -10,19 +10,28 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 
 const Navbar = () => {
     const data = useStaticQuery(graphql`
-    {
-      allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-        nodes {
-          frontmatter {
-            date
-            title
-          }
-          id
-          slug
-        }
-      }
-    }
-  `)
+        query {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
+            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+                nodes {
+                    excerpt
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                    }
+                }
+            }
+        }`
+    )
+    const posts = data.allMarkdownRemark.nodes
     return (
         <nav className={styles.mainNav}>
             <ul className={styles.navLinkItems}>
@@ -31,9 +40,9 @@ const Navbar = () => {
                 <NavbarItem url="/blog" text="BLOG">
                     <DropdownMenu>
                         {
-                            data.allMdx.nodes.map((node: any) => (
-                                <li key={node.id} className={styles.dropdownItem}>
-                                    <Link to={`/blog/${node.slug}`}>{node.frontmatter.title}</Link>
+                            posts.map((post: any) => (
+                                <li key={post.id} className={styles.dropdownItem}>
+                                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
                                 </li>
                             ))
                         }
