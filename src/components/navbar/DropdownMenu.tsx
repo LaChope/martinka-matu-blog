@@ -4,13 +4,20 @@ import { motion } from 'framer-motion';
 import * as navbarStyles from '../../styles/Navbar.module.css';
 // @ts-ignore
 import * as dashboardStyles from '../../styles/Dashboard.module.css';
+import DropdownItem from './DropdownItem';
 
 interface Props {
   className?: string;
   children?: ReactNode;
+  showPictures?: boolean;
+  dropdownItems: any;
 }
 
-const DropdownMenu = ({ className = navbarStyles.dropdownWrapper, children }: Props) => {
+const DropdownMenu = ({
+  className = navbarStyles.dropdownWrapper,
+  showPictures = false,
+  dropdownItems
+}: Props) => {
   let dropdownClassName = navbarStyles;
   if (className === dashboardStyles) dropdownClassName = dashboardStyles;
   return (
@@ -20,7 +27,13 @@ const DropdownMenu = ({ className = navbarStyles.dropdownWrapper, children }: Pr
         initial={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}>
         <div className={dropdownClassName.blur} />
-        <ul className={dropdownClassName.dropdownItems}>{children}</ul>
+        <ul className={dropdownClassName.dropdownItems}>
+          <DropdownItem
+            items={dropdownItems}
+            className={dropdownClassName.dropdownItem}
+            showPicture={showPictures}
+          />
+        </ul>
       </motion.span>
     </div>
   );

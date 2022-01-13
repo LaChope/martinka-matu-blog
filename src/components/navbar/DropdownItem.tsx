@@ -1,22 +1,45 @@
 import React, { ReactNode } from 'react';
 import { Link } from 'gatsby';
-// @ts-ignore
-import * as styles from '../../styles/Navbar.module.css';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import Card from '../Card';
 
 interface Props {
   children?: ReactNode;
-  url: string;
-  text?: string;
+  className?: string;
+  items: any;
+  showPicture: boolean;
+  picture?: IGatsbyImageData;
+  isDashboard?: boolean;
 }
 
-const DropdownItem = ({ children, url = '', text }: Props) => {
+const DropdownItem = ({ items, className, showPicture }: Props) => {
+  const getAltImage = (item: any) => {
+    if (item.frontmatter.hero_image_alt) {
+      const altItem = item.frontmatter.hero_image_alt;
+      return altItem.toString();
+    }
+    return 'No Alt Available';
+  };
+
   return (
-    <div className={styles.dropdownItem}>
-      <Link to={url}>
-        {text}
-        {children}
-      </Link>
-    </div>
+    <>
+      {items.map((item: any) => (
+        <li key={item.id} className={className}>
+          <Link to={item.fields.slug}>
+            {showPicture ? (
+              <Card
+                alt={getAltImage(item)}
+                showPicture={showPicture}
+                backgroundImage={getImage(item.frontmatter.image)}>
+                {item.frontmatter.title}
+              </Card>
+            ) : (
+              item.frontmatter.title
+            )}
+          </Link>
+        </li>
+      ))}
+    </>
   );
 };
 

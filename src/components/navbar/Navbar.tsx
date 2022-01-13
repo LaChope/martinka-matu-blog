@@ -6,9 +6,9 @@ import * as navbarStyles from '../../styles/Navbar.module.css';
 import * as dashboardStyles from '../../styles/Dashboard.module.css';
 import SocialMedias from '../SocialMedias';
 import NavbarItem from './NavbarItem';
-import Logo from './Logo';
+import Logo from '../Logo';
 import DropdownMenu from './DropdownMenu';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface Props {
   className?: string;
@@ -32,14 +32,24 @@ const Navbar = ({ className }: Props) => {
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            hero_image_alt
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                    height: 300
+                )
+              }
+            }
           }
         }
       }
     }
   `);
   const posts = data.allMarkdownRemark.nodes;
+  let isDashboard = false;
+  if (className === 'dashboard') isDashboard = true;
   let currentStyle = navbarStyles;
-  if (className === 'dashboard') currentStyle = dashboardStyles;
+  if (isDashboard) currentStyle = dashboardStyles;
 
   return (
     <nav className={currentStyle.mainNav}>
@@ -53,13 +63,7 @@ const Navbar = ({ className }: Props) => {
           </>
         )}
         <NavbarItem className={currentStyle.navLinkItem} url="/blog" text="DESTINATIONS">
-          <DropdownMenu className={currentStyle}>
-            {posts.map((post: any) => (
-              <li key={post.id} className={currentStyle.dropdownItem}>
-                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-              </li>
-            ))}
-          </DropdownMenu>
+          <DropdownMenu className={currentStyle} showPictures={isDashboard} dropdownItems={posts} />
         </NavbarItem>
         <NavbarItem className={currentStyle.navLinkItem} url="/tips" text="TIPS" />
         <NavbarItem className={currentStyle.navLinkItem} url="/about" text="ABOUT" />

@@ -8,7 +8,7 @@ import SEO from '../components/SEO';
 import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
-import Logo from '../components/navbar/Logo';
+import Logo from '../components/Logo';
 
 interface Props {
   data: any;

@@ -15,7 +15,6 @@ const Video = ({ videoSrcUrl, videoTitle, className = styles.videoContainer }: P
     const videoId: string = youtubeLink.replace(/.*[#\/]/, '');
     const youtubeParameters =
       '?controls=0&autoplay=1&loop=1&mute=1&modestbranding=1&loop=1&playlist=' + videoId;
-    console.log(youtubeParameters);
 
     return youtubeLink + youtubeParameters;
   };

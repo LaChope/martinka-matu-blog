@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 // @ts-ignore
-import * as styles from '../../styles/Navbar.module.css';
+import * as styles from '../styles/Navbar.module.css';
 
 interface Props {
     className?: string

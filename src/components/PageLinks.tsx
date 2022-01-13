@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Logo from './navbar/Logo';
+import Logo from './Logo';
 
 interface Props {
   itemClassName?: string;
