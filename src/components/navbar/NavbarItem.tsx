@@ -2,6 +2,8 @@ import React, { ReactNode, useState } from 'react';
 import { Link } from 'gatsby';
 // @ts-ignore
 import * as styles from '../../styles/Navbar.module.css';
+// @ts-ignore
+import * as dashboardStyles from '../../styles/Dashboard.module.css';
 
 interface Props {
   url: string;
@@ -10,33 +12,43 @@ interface Props {
   className?: string;
 }
 
-const NavbarItem = ({ url, text, children, className }: Props) => {
-  const [open, setOpen] = useState<boolean>(false);
+const NavbarItem = ({ url, text, children, className = styles.navLinkItem }: Props) => {
+  let isDashboard = false;
+  if (className === dashboardStyles.navLinkItem) isDashboard = true;
+  const [showDropdownMenu, setShowDropdownMenu] = useState<boolean>(isDashboard);
   // const timeout = 500;
 
-  const openDropdownMenu = () => {
-    setOpen(true);
+  const handleOnMouseEnter = () => {
+    if (className === dashboardStyles.navLinkItem) return;
+    else setShowDropdownMenu(true);
   };
 
-  const closeDropdownMenu = () => {
+  const handleOnMouseLeave = () => {
     // setTimeout(() => {
     //     setOpen(false)
     // }, timeout)
-    setOpen(false);
+    if (className === dashboardStyles.navLinkItem) return;
+    else setShowDropdownMenu(false);
+  };
+
+  const onClickHandler = () => {
+    setShowDropdownMenu(!showDropdownMenu);
   };
 
   return (
-    <li
-      className={styles.navLinkItem || className}
-      onMouseEnter={openDropdownMenu}
-      onMouseLeave={closeDropdownMenu}
-    >
-      <Link to={url}>
-        {text}
-        {/*{children}*/}
-        {open && children}
-      </Link>
-    </li>
+    <>
+      <li
+        className={className}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onClick={onClickHandler}>
+        <Link to={url}>
+          {text}
+          {/*{children}*/}
+          {showDropdownMenu && children}
+        </Link>
+      </li>
+    </>
   );
 };
 

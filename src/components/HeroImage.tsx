@@ -9,16 +9,17 @@ interface Props {
   imageAlt: string;
   heroTitle?: string;
   children?: ReactNode;
+  style?: object
 }
 
-const HeroImage = ({ gatsbyImage, imageAlt, heroTitle, children }: Props) => {
+const HeroImage = ({ gatsbyImage, imageAlt, heroTitle, style, children }: Props) => {
   return (
     <div className={styles.hero}>
       <div className={styles.heroContent}>
         <h1>{heroTitle}</h1>
         {children}
       </div>
-      <GatsbyImage className={styles.imageContainer} alt={imageAlt} image={gatsbyImage} />
+      <GatsbyImage className={styles.imageContainer} alt={imageAlt} image={gatsbyImage} style={style}/>
     </div>
   );
 };

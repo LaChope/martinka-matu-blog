@@ -4,11 +4,14 @@ import { FaInstagram, FaYoutube } from 'react-icons/all';
 import * as styles from '../styles/Navbar.module.css';
 
 interface Props {
-  logosClassName?: any;
-  logoClassName?: any;
+  logosClassName?: string;
+  logoClassName?: string;
 }
 
-const SocialMedias = ({ logosClassName, logoClassName }: Props) => {
+const SocialMedias = ({
+  logosClassName = styles.navSocialMediaLogos,
+  logoClassName = styles.navSocialMediaLogo
+}: Props) => {
   const data: Array<any> = [
     {
       id: 1,
@@ -29,9 +32,9 @@ const SocialMedias = ({ logosClassName, logoClassName }: Props) => {
 
   const templateMediaIcons = () => {
     return (
-      <ul className={styles.navSocialMediaLogos || logosClassName}>
+      <ul className={logosClassName}>
         {data.map((icon): any => (
-          <li key={icon.id} className={styles.navSocialMediaLogo || logoClassName}>
+          <li key={icon.id} className={logoClassName}>
             <a href={icon.url} target="_blank">
               {getIcon(icon.text)}
             </a>

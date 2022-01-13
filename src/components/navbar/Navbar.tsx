@@ -1,14 +1,20 @@
 import React from 'react';
 
 // @ts-ignore
-import * as styles from '../../styles/Navbar.module.css';
+import * as navbarStyles from '../../styles/Navbar.module.css';
+// @ts-ignore
+import * as dashboardStyles from '../../styles/Dashboard.module.css';
 import SocialMedias from '../SocialMedias';
 import NavbarItem from './NavbarItem';
 import Logo from './Logo';
 import DropdownMenu from './DropdownMenu';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 
-const Navbar = () => {
+interface Props {
+  className?: string;
+}
+
+const Navbar = ({ className }: Props) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -32,24 +38,36 @@ const Navbar = () => {
     }
   `);
   const posts = data.allMarkdownRemark.nodes;
+  let currentStyle = navbarStyles;
+  if (className === 'dashboard') currentStyle = dashboardStyles;
+
   return (
-    <nav className={styles.mainNav}>
-      <ul className={styles.navLinkItems}>
-        <Logo />
-        <NavbarItem url="/" text="HOME" />
-        <NavbarItem url="/blog" text="BLOG">
-          <DropdownMenu>
+    <nav className={currentStyle.mainNav}>
+      <ul className={currentStyle.navLinkItems}>
+        {className != 'dashboard' && (
+          <>
+            <li className={currentStyle.navLinkItem}>
+              <Logo />
+            </li>
+            <NavbarItem className={currentStyle.navLinkItem} url="/" text="HOME" />
+          </>
+        )}
+        <NavbarItem className={currentStyle.navLinkItem} url="/blog" text="DESTINATIONS">
+          <DropdownMenu className={currentStyle}>
             {posts.map((post: any) => (
-              <li key={post.id} className={styles.dropdownItem}>
+              <li key={post.id} className={currentStyle.dropdownItem}>
                 <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
               </li>
             ))}
           </DropdownMenu>
         </NavbarItem>
-        <NavbarItem url="/about" text="ABOUT" />
+        <NavbarItem className={currentStyle.navLinkItem} url="/tips" text="TIPS" />
+        <NavbarItem className={currentStyle.navLinkItem} url="/about" text="ABOUT" />
       </ul>
-
-      <SocialMedias />
+      <SocialMedias
+        logosClassName={currentStyle.navSocialMediaLogos}
+        logoClassName={currentStyle.navSocialMediaLogo}
+      />
     </nav>
   );
 };

@@ -5,7 +5,11 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 // @ts-ignore
 import * as styles from '../../styles/Navbar.module.css';
 
-const Logo = () => {
+interface Props {
+    className?: string
+}
+
+const Logo = ({className = styles.logo}: Props) => {
   const imageData: any = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "gatsby-icon.png" }) {
@@ -17,15 +21,13 @@ const Logo = () => {
   `);
 
   return (
-    <li className={styles.navLinkItem}>
       <Link to="/">
         <GatsbyImage
-          className={styles.logo}
+          className={className}
           alt="logo"
           image={imageData.file.childImageSharp.gatsbyImageData}
         />
       </Link>
-    </li>
   );
 };
 

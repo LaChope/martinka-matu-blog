@@ -6,15 +6,16 @@ import '../styles/global.css';
 
 interface Props {
   children: ReactNode;
-  pageTitle: string;
+  url: string
+  pageTitle: string
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ url, children, pageTitle }: Props) => {
   return (
     <>
-      <Navbar />
+      {url === '/' ? <Navbar className={"dashboard"}/> : <Navbar/>}
       {children}
-      <Footer />
+      {/*<Footer />*/}
     </>
   );
 };
