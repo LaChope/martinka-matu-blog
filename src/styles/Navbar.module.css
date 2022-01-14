@@ -18,6 +18,11 @@
 .main-nav .nav-link-items {
   display: flex;
   height: 100%;
+  width: 100%;
+}
+
+.main-nav .nav-link-items ul {
+  margin-left: auto;
 }
 
 .nav-link-item {
@@ -43,7 +48,7 @@
 .nav-social-media-logo a:after {
   content: '';
   position: absolute;
-  background-color: #ce4648;
+  background-color: #fdb7ab;
   height: 2px;
   width: 0;
   left: 0;
@@ -63,6 +68,7 @@
 
 .nav-social-media-logos {
   display: flex;
+  align-items: center;
 }
 
 .nav-social-media-logo {
@@ -91,13 +97,17 @@
 /*https://www.youtube.com/watch?v=IF6k0uZuypA&t=796s*/
 .dropdown-items {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 20px;
   padding: 1rem;
   overflow: hidden;
 }
 
 .dropdown-item {
-  display: flex;
+  display: inline-block;
+  text-align: center;
   width: 10vw;
   justify-content: center;
   transition: 0.7s;
@@ -110,5 +120,5 @@
 }
 
 .dropdown-item:hover {
-  background-color: rgba(206, 70, 72, 0.8);
+  background-color: rgba(253, 183, 171, 0.8);
 }
