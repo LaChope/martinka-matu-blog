@@ -5,6 +5,7 @@ import * as navbarStyles from '../../styles/Navbar.module.css';
 // @ts-ignore
 import * as dashboardStyles from '../../styles/Dashboard.module.css';
 import DropdownItem from './DropdownItem';
+import Slideshow from '../SlideShow';
 
 interface Props {
   className?: string;
@@ -24,13 +25,15 @@ const DropdownMenu = ({ className, showPictures = false, dropdownItems }: Props)
         initial={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}>
         <div className={dropdownClassName.blur} />
-        <ul className={dropdownClassName.dropdownItems}>
-          <DropdownItem
-            items={dropdownItems}
-            className={dropdownClassName.dropdownItem}
-            showPicture={showPictures}
-          />
-        </ul>
+        <Slideshow className="slideshow">
+          <ul className={dropdownClassName.dropdownItems}>
+            <DropdownItem
+              items={dropdownItems}
+              className={dropdownClassName.dropdownItem}
+              showPicture={showPictures}
+            />
+          </ul>
+        </Slideshow>
       </motion.span>
     </div>
   );
