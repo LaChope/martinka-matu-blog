@@ -31,7 +31,9 @@ const DropdownItem = ({ items, className, showPicture }: Props) => {
                 alt={getAltImage(item)}
                 showPicture={showPicture}
                 backgroundImage={getImage(item.frontmatter.image)}>
-                {item.frontmatter.title}
+                <span>
+                  <p>{item.frontmatter.title}</p>
+                </span>
               </Card>
             ) : (
               item.frontmatter.title

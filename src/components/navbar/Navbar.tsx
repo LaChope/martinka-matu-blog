@@ -35,9 +35,7 @@ const Navbar = ({ className }: Props) => {
             hero_image_alt
             image {
               childImageSharp {
-                gatsbyImageData(
-                    height: 300
-                )
+                gatsbyImageData(height: 300)
               }
             }
           }
@@ -45,33 +43,36 @@ const Navbar = ({ className }: Props) => {
       }
     }
   `);
+
   const posts = data.allMarkdownRemark.nodes;
   let isDashboard = false;
   if (className === 'dashboard') isDashboard = true;
-  let currentStyle = navbarStyles;
-  if (isDashboard) currentStyle = dashboardStyles;
+  let navStyle = navbarStyles;
+  if (isDashboard) navStyle = dashboardStyles;
+
+  console.log(navStyle);
 
   return (
-    <nav className={currentStyle.mainNav}>
-      <ul className={currentStyle.navLinkItems}>
+    <nav className={navStyle.mainNav}>
+      <ul className={navStyle.navLinkItems}>
         {className != 'dashboard' && (
           <>
-            <li className={currentStyle.navLinkItem}>
+            <li className={navStyle.navLinkItem}>
               <Logo />
             </li>
-            <NavbarItem className={currentStyle.navLinkItem} url="/" text="HOME" />
+            <NavbarItem className={navStyle.navLinkItem} url="/" text="HOME" />
           </>
         )}
-        <NavbarItem className={currentStyle.navLinkItem} url="/blog" text="DESTINATIONS">
-          <DropdownMenu className={currentStyle} showPictures={isDashboard} dropdownItems={posts} />
+        <NavbarItem className={navStyle.navLinkItem} url="/blog" text="DESTINATIONS">
+          <DropdownMenu className={navStyle} showPictures={isDashboard} dropdownItems={posts} />
         </NavbarItem>
-        <NavbarItem className={currentStyle.navLinkItem} url="/tips" text="TIPS" />
-        <NavbarItem className={currentStyle.navLinkItem} url="/about" text="ABOUT" />
+        <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS" />
+        <NavbarItem className={navStyle.navLinkItem} url="/about" text="ABOUT" />
+        <SocialMedias
+          logosClassName={navStyle.navSocialMediaLogos}
+          logoClassName={navStyle.navSocialMediaLogo}
+        />
       </ul>
-      <SocialMedias
-        logosClassName={currentStyle.navSocialMediaLogos}
-        logoClassName={currentStyle.navSocialMediaLogo}
-      />
     </nav>
   );
 };

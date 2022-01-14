@@ -1,131 +1,134 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .main-nav {
-    font-family: Montserrat, sans-serif;
-    position: absolute;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    z-index: 1;
-    height: 100vh;
-    width: 35vw;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
-    backdrop-filter: blur(20px);
+  font-family: Montserrat, sans-serif;
+  position: absolute;
+  top: 2vh;
+  left: 1vw;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1;
+  height: 95vh;
+  border-radius: 40px;
+  width: 35vw;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(20px);
 }
 
 .main-nav .nav-link-items {
-    display: flex;
+  display: flex;
+  width: 100%;
+}
+
+.main-nav .nav-link-items ul {
+  margin-left: auto;
 }
 
 .nav-link-item,
-.nav-social-media-logo{
-    display: flex;
-    align-items: center;
-    padding: 2rem;
+.nav-social-media-logo {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
 }
 
 .nav-link-item a,
 .nav-social-media-logo a {
-    position: relative;
-    color: rgb(229, 229, 229);
+  position: relative;
+  color: rgb(229, 229, 229);
 }
 
 .nav-link-item a:after,
 .nav-social-media-logo a:after {
-    content: "";
-    position: absolute;
-    background-color: #ce4648;
-    height: 2px;
-    width: 0;
-    left: 0;
-    bottom: -.5rem;
-    transition: .3s;
+  content: '';
+  position: absolute;
+  background-color: #fdb7ab;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -0.5rem;
+  transition: 0.3s;
 }
 
 .nav-link-item > a:hover,
-.nav-social-media-logo > a:hover{
-    color: #ce4648;
-    transition: 0.3s;
+.nav-social-media-logo > a:hover {
+  color: #fdb7ab;
+  transition: 0.3s;
 }
 
 .nav-link-item > a:hover:after,
-.nav-social-media-logo > a:hover:after{
-    width: 100%;
+.nav-social-media-logo > a:hover:after {
+  width: 100%;
 }
 
 .nav-social-media-logos {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-social-media-logo {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .dropdown-wrapper {
-    position: fixed;
-    top: 15vh;
-    left: 1vw;
-    height: 75vh;
-    width: 33vw;
-    /*background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));*/
-    /*backdrop-filter: blur(8px);*/
-    /*border-radius: 20px;*/
+  position: absolute;
+  top: 4vh;
+  left: -32px;
+  height: 80vh;
+  width: 35vw;
 }
-
-/*.blur {*/
-/*    position: absolute;*/
-/*    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));*/
-/*    backdrop-filter: blur(8px);*/
-/*    border-radius: 20px;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*}*/
 
 /*For CSS transitions for dropdown menu:*/
 /*https://www.youtube.com/watch?v=IF6k0uZuypA&t=796s*/
 .dropdown-items {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    border-radius: 20px;
-    padding: 1rem;
-    overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 3rem;
+  overflow: hidden;
+  /*background: blue;*/
 }
 
 .dropdown-item {
-    display: flex;
-    width: 10vw;
-    justify-content: center;
-    transition: 0.7s;
-    padding: 1rem;
-    border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  transition: 0.7s;
+  padding: 1rem;
+  border-radius: 15px;
 }
 
 .dropdown-item a {
-    color: black;
+  color: black;
 }
 
 .dropdown-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(206, 70, 72, 0.8);
+  /*background: linear-gradient(to right bottom, rgba(253, 193, 163, 0.9), rgba(253, 193, 163, 0.3));*/
+  z-index: 0;
 }
 
 .card-container {
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 250px;
+  width: 130px;
+}
+
+.card-container p {
+  font-family: 'Vegan Style Personal Use', sans-serif;
 }
 
 .image-container {
-    position: absolute;
-    height: 200px;
-    width: 150px;
-    border-radius: 20px;
-    z-index: -1;
+  position: absolute;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  box-shadow: -1px 1px 5px black;
 }

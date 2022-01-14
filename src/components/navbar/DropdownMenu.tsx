@@ -13,13 +13,10 @@ interface Props {
   dropdownItems: any;
 }
 
-const DropdownMenu = ({
-  className = navbarStyles.dropdownWrapper,
-  showPictures = false,
-  dropdownItems
-}: Props) => {
+const DropdownMenu = ({ className, showPictures = false, dropdownItems }: Props) => {
   let dropdownClassName = navbarStyles;
   if (className === dashboardStyles) dropdownClassName = dashboardStyles;
+
   return (
     <div className={dropdownClassName.dropdownWrapper}>
       <motion.span

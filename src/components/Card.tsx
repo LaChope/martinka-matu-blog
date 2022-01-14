@@ -1,6 +1,12 @@
 import React, { ReactNode } from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
+import { motion } from 'framer-motion';
+
+// @ts-ignore
+import * as navbarStyles from '../styles/Navbar.module.css';
+// @ts-ignore
+import * as dashboardStyles from '../styles/Dashboard.module.css';
 
 interface Props {
   children?: ReactNode;
@@ -8,6 +14,7 @@ interface Props {
   alt: string;
   backgroundVideoURL?: string;
   showPicture: boolean;
+  className?: string;
 }
 
 const Card = ({
@@ -15,7 +22,8 @@ const Card = ({
   backgroundVideoURL,
   alt = 'default',
   children,
-  showPicture = false
+  showPicture = false,
+  className
 }: Props) => {
   const defaultImage = useStaticQuery(graphql`
     {
@@ -27,23 +35,28 @@ const Card = ({
     }
   `);
 
+  let cardStyle = dashboardStyles;
+  if (className === navbarStyles) cardStyle = navbarStyles;
+
   return (
-    <div className="card-container">
-      {showPicture && (
-        <>
-          {alt && backgroundImage ? (
-            <GatsbyImage className="image-container" alt={alt} image={backgroundImage} />
-          ) : (
-            <GatsbyImage
-              className="image-container"
-              alt={alt}
-              image={defaultImage.file.childImageSharp.gatsbyImageData}
-            />
-          )}
-        </>
-      )}
-      {children}
-    </div>
+    <motion.div whileHover={{ scale: 1.1 }}>
+      <div className={cardStyle.cardContainer}>
+        {showPicture && (
+          <>
+            {alt && backgroundImage ? (
+              <GatsbyImage className={cardStyle.imageContainer} alt={alt} image={backgroundImage} />
+            ) : (
+              <GatsbyImage
+                className={cardStyle.imageContainer}
+                alt={alt}
+                image={defaultImage.file.childImageSharp.gatsbyImageData}
+              />
+            )}
+          </>
+        )}
+        {children}
+      </div>
+    </motion.div>
   );
 };
 
