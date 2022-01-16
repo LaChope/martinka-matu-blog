@@ -30,7 +30,7 @@ p {
 }
 
 .logo {
-  position: absolute;
+  position: fixed;
   height: 3rem;
   width: 3rem;
   top: 5%;

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
-import { motion } from 'framer-motion';
 
 // @ts-ignore
 import * as navbarStyles from '../styles/Navbar.module.css';

@@ -20,6 +20,11 @@
   width: 100%;
 }
 
+.logo {
+  height: 2rem;
+  width: 2rem;
+}
+
 .main-nav .nav-link-items ul {
   margin-left: auto;
 }

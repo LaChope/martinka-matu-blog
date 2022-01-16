@@ -9,6 +9,7 @@ import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
+import HeroVideo from "../components/HeroVideo";
 
 interface Props {
   data: any;
@@ -72,6 +73,7 @@ const BlogIndex = ({ data }: Props) => {
       <HeroImage gatsbyImage={image} imageAlt="Seychelles"
                  // style={{ transform: 'rotateY(180deg)' }}
       >
+        {/*<Hero videoSrcUrl={"https://www.youtube.com/watch?v=LXb3EKWsInQ"} videoTitle={"Video Hero"} >*/}
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
       </HeroImage>

@@ -72,13 +72,13 @@ const Slideshow = ({ children, numberOfItems, isDashboard }: Props) => {
         <motion.div
           whileHover={{ scale: 1.3 }}
           className={dashboardStyles.sliderArrow}
-          onClick={onClickHandlerIncrement}>
+          onClick={onClickHandlerDecrement}>
           <FaAngleLeft />
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.3 }}
           className={dashboardStyles.sliderArrow}
-          onClick={onClickHandlerDecrement}>
+          onClick={onClickHandlerIncrement}>
           <FaAngleRight />
         </motion.div>
       </div>

@@ -9,6 +9,7 @@ import NavbarItem from './NavbarItem';
 import Logo from '../Logo';
 import DropdownMenu from './DropdownMenu';
 import { graphql, useStaticQuery } from 'gatsby';
+import { motion } from 'framer-motion';
 
 interface Props {
   className?: string;
@@ -49,8 +50,6 @@ const Navbar = ({ className }: Props) => {
   if (className === 'dashboard') isDashboard = true;
   let navStyle = navbarStyles;
   if (isDashboard) navStyle = dashboardStyles;
-
-  console.log(navStyle);
 
   return (
     <nav className={navStyle.mainNav}>
