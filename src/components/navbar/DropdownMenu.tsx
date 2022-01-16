@@ -10,11 +10,11 @@ import Slideshow from '../SlideShow';
 interface Props {
   className?: string;
   children?: ReactNode;
-  showPictures?: boolean;
+  isDashboard?: boolean;
   dropdownItems: any;
 }
 
-const DropdownMenu = ({ className, showPictures = false, dropdownItems }: Props) => {
+const DropdownMenu = ({ className, isDashboard = false, dropdownItems }: Props) => {
   let dropdownClassName = navbarStyles;
   if (className === dashboardStyles) dropdownClassName = dashboardStyles;
 
@@ -25,12 +25,12 @@ const DropdownMenu = ({ className, showPictures = false, dropdownItems }: Props)
         initial={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}>
         <div className={dropdownClassName.blur} />
-        <Slideshow className="slideshow">
+        <Slideshow className="slideshow" numberOfItems={dropdownItems.length} isDashboard={isDashboard}>
           <ul className={dropdownClassName.dropdownItems}>
             <DropdownItem
               items={dropdownItems}
               className={dropdownClassName.dropdownItem}
-              showPicture={showPictures}
+              isDashboard={isDashboard}
             />
           </ul>
         </Slideshow>

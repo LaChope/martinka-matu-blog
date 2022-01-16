@@ -35,7 +35,7 @@ const Navbar = ({ className }: Props) => {
             hero_image_alt
             image {
               childImageSharp {
-                gatsbyImageData(height: 300)
+                gatsbyImageData
               }
             }
           }
@@ -64,7 +64,7 @@ const Navbar = ({ className }: Props) => {
           </>
         )}
         <NavbarItem className={navStyle.navLinkItem} url="/blog" text="DESTINATIONS">
-          <DropdownMenu className={navStyle} showPictures={isDashboard} dropdownItems={posts} />
+          <DropdownMenu className={navStyle} isDashboard={isDashboard} dropdownItems={posts} />
         </NavbarItem>
         <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS" />
         <NavbarItem className={navStyle.navLinkItem} url="/about" text="ABOUT" />

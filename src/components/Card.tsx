@@ -39,24 +39,22 @@ const Card = ({
   if (className === navbarStyles) cardStyle = navbarStyles;
 
   return (
-    <motion.div whileHover={{ scale: 1.1 }}>
-      <div className={cardStyle.cardContainer}>
-        {showPicture && (
-          <>
-            {alt && backgroundImage ? (
-              <GatsbyImage className={cardStyle.imageContainer} alt={alt} image={backgroundImage} />
-            ) : (
-              <GatsbyImage
-                className={cardStyle.imageContainer}
-                alt={alt}
-                image={defaultImage.file.childImageSharp.gatsbyImageData}
-              />
-            )}
-          </>
-        )}
-        {children}
-      </div>
-    </motion.div>
+    <div className={cardStyle.cardContainer}>
+      {showPicture && (
+        <>
+          {alt && backgroundImage ? (
+            <GatsbyImage className={cardStyle.imageContainer} alt={alt} image={backgroundImage} />
+          ) : (
+            <GatsbyImage
+              className={cardStyle.imageContainer}
+              alt={alt}
+              image={defaultImage.file.childImageSharp.gatsbyImageData}
+            />
+          )}
+        </>
+      )}
+      {children}
+    </div>
   );
 };
 

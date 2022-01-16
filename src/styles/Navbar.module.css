@@ -58,7 +58,8 @@
 
 .nav-link-item > a:hover,
 .nav-social-media-logo > a:hover {
-  color: white;
+  color: #fdb7ab;
+  transition: 0.3s;
 }
 
 .nav-link-item > a:hover:after,

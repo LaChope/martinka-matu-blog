@@ -69,7 +69,9 @@ const BlogIndex = ({ data }: Props) => {
       {/*    })}*/}
       {/*</ol>*/}
       <Logo className="logo"/>
-      <HeroImage gatsbyImage={image} imageAlt="Seychelles" style={{ transform: 'rotateY(180deg)' }}>
+      <HeroImage gatsbyImage={image} imageAlt="Seychelles"
+                 // style={{ transform: 'rotateY(180deg)' }}
+      >
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
       </HeroImage>

@@ -20,7 +20,8 @@ h2 {
   overflow: hidden;
   background-color: black;
   z-index: -1;
-  font-family: 'Vegan Style Personal Use', sans-serif;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
 }
 
 .hero-content {
