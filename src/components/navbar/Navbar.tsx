@@ -9,7 +9,6 @@ import NavbarItem from './NavbarItem';
 import Logo from '../Logo';
 import DropdownMenu from './DropdownMenu';
 import { graphql, useStaticQuery } from 'gatsby';
-import { motion } from 'framer-motion';
 
 interface Props {
   className?: string;
@@ -63,9 +62,11 @@ const Navbar = ({ className }: Props) => {
           </>
         )}
         <NavbarItem className={navStyle.navLinkItem} url="/blog" text="DESTINATIONS">
-          <DropdownMenu className={navStyle} isDashboard={isDashboard} dropdownItems={posts} />
+          <DropdownMenu className={navStyle} menuIteration={1} isDashboard={isDashboard} dropdownItems={posts} />
         </NavbarItem>
-        <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS" />
+        <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS">
+          <DropdownMenu className={navStyle} menuIteration={2} isDashboard={isDashboard} dropdownItems={posts} />
+        </NavbarItem>
         <NavbarItem className={navStyle.navLinkItem} url="/about" text="ABOUT" />
         <SocialMedias
           logosClassName={navStyle.navSocialMediaLogos}

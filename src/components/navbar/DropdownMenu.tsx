@@ -12,14 +12,16 @@ interface Props {
   children?: ReactNode;
   isDashboard?: boolean;
   dropdownItems: any;
+  menuIteration: number
 }
 
-const DropdownMenu = ({ className, isDashboard = false, dropdownItems }: Props) => {
+const DropdownMenu = ({ className, isDashboard = false, dropdownItems, menuIteration }: Props) => {
   let dropdownClassName = navbarStyles;
   if (className === dashboardStyles) dropdownClassName = dashboardStyles;
+  const dropdownWrapperClassNameIteration = dropdownClassName["dropdownWrapper" + menuIteration];
 
   return (
-    <div className={dropdownClassName.dropdownWrapper}>
+    <div className={`${dropdownClassName.dropdownWrapper} ${dropdownWrapperClassNameIteration}`}>
       <motion.span
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}

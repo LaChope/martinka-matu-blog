@@ -10,6 +10,7 @@ import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
 import HeroVideo from "../components/HeroVideo";
+import InfoBoard from "../components/InfoBoard";
 
 interface Props {
   data: any;
@@ -77,6 +78,7 @@ const BlogIndex = ({ data }: Props) => {
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
       </HeroImage>
+        <InfoBoard/>
       {/*<div className={styles.mainSection}>*/}
       {/*  <div className={styles.el1}>Element1</div>*/}
       {/*  <div className={styles.el2}>Element2</div>*/}

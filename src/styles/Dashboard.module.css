@@ -84,6 +84,15 @@
   overflow: hidden;
 }
 
+.dropdown-wrapper.dropdown-wrapper-2 {
+  position: absolute;
+  top: 45vh;
+  left: -218px;
+  height: 80vh;
+  width: 35vw;
+  overflow: hidden;
+}
+
 /*For CSS transitions for dropdown menu:*/
 /*https://www.youtube.com/watch?v=IF6k0uZuypA&t=796s*/
 .dropdown-items {
