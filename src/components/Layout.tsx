@@ -1,7 +1,5 @@
 import React, { ReactNode } from 'react';
 import Navbar from './navbar/Navbar';
-import Footer from './Footer';
-import { motion } from 'framer-motion';
 
 import '../styles/global.css';
 

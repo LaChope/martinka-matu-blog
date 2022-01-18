@@ -12,7 +12,7 @@ interface Props {
   isDashboard: boolean;
 }
 
-const Slideshow = ({ children, numberOfItems, isDashboard }: Props) => {
+const SlideShow = ({ children, numberOfItems, isDashboard }: Props) => {
   const [translate, setTranslate] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -86,4 +86,4 @@ const Slideshow = ({ children, numberOfItems, isDashboard }: Props) => {
   );
 };
 
-export default Slideshow;
+export default SlideShow;

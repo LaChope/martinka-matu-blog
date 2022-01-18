@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // @ts-ignore
 import * as navbarStyles from '../../styles/Navbar.module.css';
@@ -9,6 +9,9 @@ import NavbarItem from './NavbarItem';
 import Logo from '../Logo';
 import DropdownMenu from './DropdownMenu';
 import { graphql, useStaticQuery } from 'gatsby';
+import { GiHamburgerMenu, MdClose } from 'react-icons/all';
+import { motion } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {
   className?: string;
@@ -43,37 +46,86 @@ const Navbar = ({ className }: Props) => {
       }
     }
   `);
+  const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   const posts = data.allMarkdownRemark.nodes;
+  const slider = {
+    close: { x: '-100%', transition: { duration: 1, ease: 'easeInOut' } },
+    open: { x: 0, transition: { duration: 1, ease: 'easeInOut' } }
+  };
+
+  const fade = {
+    close: { opacity: 0, transition: { duration: 1, ease: 'easeInOut' } },
+    open: { opacity: 1, transition: { duration: 1, ease: 'easeInOut' } }
+  };
+
+  const noAnimation = {
+    close: { opacity: 1, x: 0 },
+    open: { opacity: 1, x: 0 }
+  };
+
   let isDashboard = false;
   if (className === 'dashboard') isDashboard = true;
   let navStyle = navbarStyles;
   if (isDashboard) navStyle = dashboardStyles;
 
+  const onClickToggleNavbar = () => {
+    setToggleNavbar(!toggleNavbar);
+  };
+
   return (
-    <nav className={navStyle.mainNav}>
-      <ul className={navStyle.navLinkItems}>
-        {className != 'dashboard' && (
-          <>
-            <li className={navStyle.navLinkItem}>
-              <Logo />
-            </li>
-            <NavbarItem className={navStyle.navLinkItem} url="/" text="HOME" />
-          </>
-        )}
-        <NavbarItem className={navStyle.navLinkItem} url="/blog" text="DESTINATIONS">
-          <DropdownMenu className={navStyle} menuIteration={1} isDashboard={isDashboard} dropdownItems={posts} />
-        </NavbarItem>
-        <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS">
-          <DropdownMenu className={navStyle} menuIteration={2} isDashboard={isDashboard} dropdownItems={posts} />
-        </NavbarItem>
-        <NavbarItem className={navStyle.navLinkItem} url="/about" text="ABOUT" />
-        <SocialMedias
-          logosClassName={navStyle.navSocialMediaLogos}
-          logoClassName={navStyle.navSocialMediaLogo}
-        />
-      </ul>
-    </nav>
+    <>
+      {isMobile && (
+        <motion.div
+          className="toggle-navbar"
+          onClick={onClickToggleNavbar}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}>
+          {toggleNavbar ? <MdClose /> : <GiHamburgerMenu />}
+        </motion.div>
+      )}
+
+      <motion.nav
+        className={navStyle.mainNav}
+        variants={isMobile ? fade : noAnimation}
+        initial={isMobile ? 'close' : 'open'}
+        animate={toggleNavbar ? 'open' : 'close'}>
+        <ul className={navStyle.navLinkItems}>
+          {className != 'dashboard' && (
+            <>
+              {!isMobile && (
+                <li className={navStyle.navLinkItem}>
+                  <Logo />
+                </li>
+              )}
+              <NavbarItem className={navStyle.navLinkItem} url="/" text="HOME" />
+            </>
+          )}
+          <NavbarItem className={navStyle.navLinkItem} url="/blog" text="DESTINATIONS">
+            <DropdownMenu
+              className={navStyle}
+              dropdownMenuIteration={1}
+              isDashboard={isDashboard}
+              dropdownItems={posts}
+            />
+          </NavbarItem>
+          <NavbarItem className={navStyle.navLinkItem} url="/tips" text="TIPS">
+            <DropdownMenu
+              className={navStyle}
+              dropdownMenuIteration={2}
+              isDashboard={isDashboard}
+              dropdownItems={posts}
+            />
+          </NavbarItem>
+          <NavbarItem className={navStyle.navLinkItem} url="/about" text="ABOUT" />
+          <SocialMedias
+            logosClassName={navStyle.navSocialMediaLogos}
+            logoClassName={navStyle.navSocialMediaLogo}
+          />
+        </ul>
+      </motion.nav>
+    </>
   );
 };
 

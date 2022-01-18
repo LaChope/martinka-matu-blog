@@ -123,3 +123,43 @@
 .dropdown-item:hover {
   background-color: rgba(253, 183, 171, 0.8);
 }
+
+@media screen and (max-width: 1024px) {
+  .main-nav {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    align-items: center;
+    font-size: 2.5rem;
+  }
+
+  .nav-link-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link-item,
+  .nav-social-media-logo {
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .main-nav .nav-link-items ul {
+    padding-left: 2rem;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .nav-social-media-logo {
+    list-style: none;
+    padding-left: 0;
+    font-size: 2.5rem;
+  }
+
+  .dropdown-wrapper {
+    display: none;
+  }
+}

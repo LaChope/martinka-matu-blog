@@ -23,9 +23,9 @@ const DropdownItem = ({ items, className, isDashboard }: Props) => {
 
   return (
     <>
-      {items.map((item: any) => (
+      {items.map((item: any, i:number) => (
         <motion.li
-          key={item.id}
+          key={i}
           className={className}
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2, ease: 'easeInOut' }}>

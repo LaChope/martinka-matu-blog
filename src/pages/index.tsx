@@ -9,8 +9,8 @@ import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';
-import HeroVideo from "../components/HeroVideo";
-import InfoBoard from "../components/InfoBoard";
+import HeroVideo from '../components/HeroVideo';
+import InfoDashboard from '../components/InfoDashboard';
 
 interface Props {
   data: any;
@@ -70,15 +70,17 @@ const BlogIndex = ({ data }: Props) => {
       {/*        )*/}
       {/*    })}*/}
       {/*</ol>*/}
-      <Logo className="logo"/>
-      <HeroImage gatsbyImage={image} imageAlt="Seychelles"
-                 // style={{ transform: 'rotateY(180deg)' }}
+      <Logo className="logo" />
+      <HeroImage
+        gatsbyImage={image}
+        imageAlt="Seychelles"
+        // style={{ transform: 'rotateY(180deg)' }}
       >
         {/*<Hero videoSrcUrl={"https://www.youtube.com/watch?v=LXb3EKWsInQ"} videoTitle={"Video Hero"} >*/}
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
       </HeroImage>
-        <InfoBoard/>
+      {/*<InfoDashboard />*/}
       {/*<div className={styles.mainSection}>*/}
       {/*  <div className={styles.el1}>Element1</div>*/}
       {/*  <div className={styles.el2}>Element2</div>*/}

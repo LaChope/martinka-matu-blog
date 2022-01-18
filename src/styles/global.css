@@ -36,3 +36,15 @@ p {
   top: 5%;
   right: 5%;
 }
+
+@media screen and (max-width: 1024px) {
+  .toggle-navbar {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    height: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+}
