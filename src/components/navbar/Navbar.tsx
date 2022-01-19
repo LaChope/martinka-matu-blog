@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // @ts-ignore
 import * as navbarStyles from '../../styles/Navbar.module.css';
@@ -12,6 +12,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GiHamburgerMenu, MdClose } from 'react-icons/all';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
+import { useScrollBlock } from '../../utils/useScrollBlock';
 
 interface Props {
   className?: string;
@@ -47,17 +48,19 @@ const Navbar = ({ className }: Props) => {
     }
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
+
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   const posts = data.allMarkdownRemark.nodes;
   const slider = {
-    close: { x: '-100%', transition: { duration: 1, ease: 'easeInOut' } },
-    open: { x: 0, transition: { duration: 1, ease: 'easeInOut' } }
+    close: { x: '-100%', transition: { duration: 0.5, ease: 'easeInOut' } },
+    open: { x: 0, transition: { duration: 0.5, ease: 'easeInOut' } }
   };
 
   const fade = {
-    close: { opacity: 0, transition: { duration: 1, ease: 'easeInOut' } },
-    open: { opacity: 1, transition: { duration: 1, ease: 'easeInOut' } }
+    close: { opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } },
+    open: { opacity: 1, transition: { duration: 0.5, ease: 'easeInOut' } }
   };
 
   const noAnimation = {
@@ -70,8 +73,17 @@ const Navbar = ({ className }: Props) => {
   let navStyle = navbarStyles;
   if (isDashboard) navStyle = dashboardStyles;
 
+  useEffect(() => {
+    allowScroll();
+  }, []);
+
   const onClickToggleNavbar = () => {
     setToggleNavbar(!toggleNavbar);
+    if (!toggleNavbar && isMobile) {
+      blockScroll();
+    } else {
+      allowScroll();
+    }
   };
 
   return (
@@ -88,11 +100,11 @@ const Navbar = ({ className }: Props) => {
 
       <motion.nav
         className={navStyle.mainNav}
-        variants={isMobile ? fade : noAnimation}
+        variants={isMobile ? slider : noAnimation}
         initial={isMobile ? 'close' : 'open'}
         animate={toggleNavbar ? 'open' : 'close'}>
         <ul className={navStyle.navLinkItems}>
-          {className != 'dashboard' && (
+          {!isDashboard && (
             <>
               {!isMobile && (
                 <li className={navStyle.navLinkItem}>
