@@ -12,7 +12,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GiHamburgerMenu, MdClose } from 'react-icons/all';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
-import { useScrollBlock } from '../../utils/useScrollBlock';
 
 interface Props {
   className?: string;
@@ -48,7 +47,6 @@ const Navbar = ({ className }: Props) => {
     }
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
-  const [blockScroll, allowScroll] = useScrollBlock();
 
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
@@ -73,17 +71,8 @@ const Navbar = ({ className }: Props) => {
   let navStyle = navbarStyles;
   if (isDashboard) navStyle = dashboardStyles;
 
-  useEffect(() => {
-    allowScroll();
-  }, []);
-
   const onClickToggleNavbar = () => {
     setToggleNavbar(!toggleNavbar);
-    if (!toggleNavbar && isMobile) {
-      blockScroll();
-    } else {
-      allowScroll();
-    }
   };
 
   return (
