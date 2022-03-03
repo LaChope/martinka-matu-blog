@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
+    "gatsby-plugin-netlify": "^4.1.0",
     "prettier": "^2.5.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
