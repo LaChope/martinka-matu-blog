@@ -31,12 +31,14 @@ const DropdownMenu = ({
       <motion.span
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}>
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
         <div className={dropdownClassName.blur} />
         <SlideShow
           className="slideshow"
           numberOfItems={dropdownItems.length}
-          isDashboard={isDashboard}>
+          isDashboard={isDashboard}
+        >
           <ul className={dropdownClassName.dropdownItems}>
             <DropdownItem
               items={dropdownItems}

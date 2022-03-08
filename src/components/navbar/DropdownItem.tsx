@@ -23,18 +23,20 @@ const DropdownItem = ({ items, className, isDashboard }: Props) => {
 
   return (
     <>
-      {items.map((item: any, i:number) => (
+      {items.map((item: any, i: number) => (
         <motion.li
           key={i}
           className={className}
           whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}>
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+        >
           <Link to={item.fields.slug}>
             {isDashboard ? (
               <Card
                 alt={getAltImage(item)}
                 showPicture={isDashboard}
-                backgroundImage={getImage(item.frontmatter.image)}>
+                backgroundImage={getImage(item.frontmatter.image)}
+              >
                 <span>
                   <p>{item.frontmatter.title}</p>
                 </span>

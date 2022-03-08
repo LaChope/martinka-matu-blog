@@ -4,8 +4,8 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
-// @ts-ignore
-import * as styles from '../styles/Homepage.module.css';
+
+// import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
 import Logo from '../components/Logo';

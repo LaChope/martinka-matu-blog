@@ -139,6 +139,11 @@
 .card-container p {
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .image-container {

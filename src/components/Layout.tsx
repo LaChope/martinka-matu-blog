@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import Navbar from './navbar/Navbar';
 
-import '../styles/global.css';
-
 interface Props {
   children: ReactNode;
   url: string;

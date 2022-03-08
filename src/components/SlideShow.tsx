@@ -64,7 +64,8 @@ const SlideShow = ({ children, numberOfItems, isDashboard }: Props) => {
       <motion.div
         variants={isDashboard ? dashboardVariants : navbarVariants}
         initial={isDashboard ? 'hidden' : 'visible'}
-        animate={isLoading ? 'hidden' : 'visible' && 'translate'}>
+        animate={isLoading ? 'hidden' : 'visible' && 'translate'}
+      >
         {children}
       </motion.div>
 
@@ -72,13 +73,15 @@ const SlideShow = ({ children, numberOfItems, isDashboard }: Props) => {
         <motion.div
           whileHover={{ scale: 1.3 }}
           className={dashboardStyles.sliderArrow}
-          onClick={onClickHandlerDecrement}>
+          onClick={onClickHandlerDecrement}
+        >
           <FaAngleLeft />
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.3 }}
           className={dashboardStyles.sliderArrow}
-          onClick={onClickHandlerIncrement}>
+          onClick={onClickHandlerIncrement}
+        >
           <FaAngleRight />
         </motion.div>
       </div>

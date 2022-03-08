@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 // @ts-ignore
 import * as navbarStyles from '../../styles/Navbar.module.css';
@@ -48,7 +48,14 @@ const Navbar = ({ className }: Props) => {
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
 
-  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  // const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const mediaQuery = useMediaQuery({ maxWidth: 1024 })
+
+  useEffect(() => {
+    setIsMobile(mediaQuery);
+    console.log("mobile")
+  });
 
   const posts = data.allMarkdownRemark.nodes;
   const slider = {
@@ -82,7 +89,8 @@ const Navbar = ({ className }: Props) => {
           className="toggle-navbar"
           onClick={onClickToggleNavbar}
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>
+          whileTap={{ scale: 0.9 }}
+        >
           {toggleNavbar ? <MdClose /> : <GiHamburgerMenu />}
         </motion.div>
       )}
@@ -91,7 +99,8 @@ const Navbar = ({ className }: Props) => {
         className={navStyle.mainNav}
         variants={isMobile ? slider : noAnimation}
         initial={isMobile ? 'close' : 'open'}
-        animate={toggleNavbar ? 'open' : 'close'}>
+        animate={toggleNavbar ? 'open' : 'close'}
+      >
         <ul className={navStyle.navLinkItems}>
           {!isDashboard && (
             <>
