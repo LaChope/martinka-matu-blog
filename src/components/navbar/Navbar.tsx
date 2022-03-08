@@ -48,14 +48,12 @@ const Navbar = ({ className }: Props) => {
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
 
-  // const isMobile = useMediaQuery({ maxWidth: 1024 });
   const [isMobile, setIsMobile] = useState<boolean>(true);
-  const mediaQuery = useMediaQuery({ maxWidth: 1024 })
+  const mediaQuery = useMediaQuery({ maxWidth: 1024 });
 
   useEffect(() => {
     setIsMobile(mediaQuery);
-    console.log("mobile")
-  });
+  }, [mediaQuery]);
 
   const posts = data.allMarkdownRemark.nodes;
   const slider = {
@@ -97,7 +95,7 @@ const Navbar = ({ className }: Props) => {
 
       <motion.nav
         className={navStyle.mainNav}
-        variants={isMobile ? slider : noAnimation}
+        variants={isMobile ? fade : noAnimation}
         initial={isMobile ? 'close' : 'open'}
         animate={toggleNavbar ? 'open' : 'close'}
       >
