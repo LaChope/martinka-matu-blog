@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
-import HeroVideo from '../components/HeroVideo';
+import HeroVideo from '../components/Hero/HeroVideo';
 import SlideShow from '../components/SlideShow';
 import Card from '../components/Card';
 

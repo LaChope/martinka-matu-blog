@@ -3,14 +3,16 @@ import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import { getImage } from 'gatsby-plugin-image';
 import Layout from '../components/Layout';
-import HeroVideo from '../components/HeroVideo';
-import HeroImage from '../components/HeroImage';
+import HeroVideo from '../components/Hero/HeroVideo';
+import HeroImage from '../components/Hero/HeroImage';
+import ResponsiveHero from '../components/Hero/ResponsiveHero';
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
   const image = getImage(data.markdownRemark.frontmatter.image);
+  const video = post.frontmatter.video;
 
   return (
     <Layout pageTitle={siteTitle}>
@@ -18,16 +20,18 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      {post.frontmatter.video && (
-        <HeroVideo
-          videoSrcUrl={post.frontmatter.video}
-          videoTitle={post.frontmatter.video_title}
+      {video && image && (
+        <ResponsiveHero
+          gatsbyImage={image}
+          imageAlt={post.frontmatter.hero_image_alt}
           heroTitle={post.frontmatter.hero_title}
+          videoSrcUrl={video}
+          videoTitle={post.frontmatter.video_title}
           videoStartTime={post.frontmatter.video_start_time}
           videoEndTime={post.frontmatter.video_end_time}
         />
       )}
-      {image && (
+      {image && !video && (
         <HeroImage
           gatsbyImage={image}
           imageAlt={post.frontmatter.hero_image_alt}

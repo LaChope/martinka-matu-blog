@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 // @ts-ignore
-import { hero, heroContent, imageContainer } from '../styles/Hero.module.css';
+import { hero, heroContent, imageContainer } from '../../styles/Hero.module.css';
 
 interface Props {
   gatsbyImage: IGatsbyImageData | any;

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 // @ts-ignore
-import * as styles from '../styles/Hero.module.css';
+import * as styles from '../../styles/Hero.module.css';
 // import Video from './Video';
 
 interface Props {

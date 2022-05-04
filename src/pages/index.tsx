@@ -6,10 +6,11 @@ import SEO from '../components/SEO';
 
 // import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
-import HeroImage from '../components/HeroImage';
+import HeroImage from '../components/Hero/HeroImage';
 import Logo from '../components/Logo';
-import HeroVideo from '../components/HeroVideo';
+import HeroVideo from '../components/Hero/HeroVideo';
 import InfoDashboard from '../components/InfoDashboard';
+import ResponsiveHero from '../components/Hero/ResponsiveHero';
 
 interface Props {
   data: any;
@@ -70,18 +71,14 @@ const BlogIndex = ({ data }: Props) => {
       {/*    })}*/}
       {/*</ol>*/}
       <Logo className="logo" />
-      {/*<HeroImage*/}
-      {/*  gatsbyImage={image}*/}
-      {/*  imageAlt="Seychelles"*/}
-      {/*  // style={{ transform: 'rotateY(180deg)' }}*/}
-      {/*>*/}
-      <HeroVideo
+      <ResponsiveHero
+        gatsbyImage={image}
+        imageAlt={'Seychelles'}
         videoSrcUrl={'https://www.youtube.com/watch?v=LXb3EKWsInQ'}
         videoTitle={'Video Hero'}>
         <h1>Martinka Matu</h1>
-        <h2>Your trip starts now.</h2>
-      </HeroVideo>
-      {/*</HeroImage>*/}
+        <h2>Blog Website</h2>
+      </ResponsiveHero>
       {/*<InfoDashboard />*/}
       {/*<div className={styles.mainSection}>*/}
       {/*  <div className={styles.el1}>Element1</div>*/}
