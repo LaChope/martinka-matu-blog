@@ -128,10 +128,6 @@
 }
 
 .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
   height: 14rem;
   width: 10rem;
 }
@@ -139,7 +135,7 @@
 .card-container p {
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -147,7 +143,6 @@
 }
 
 .image-container {
-  position: absolute;
   border-radius: 20px;
   height: 100%;
   width: 100%;

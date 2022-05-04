@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import { Link } from 'gatsby';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import Card from '../Card';
-import { motion } from 'framer-motion';
 
 interface Props {
   children?: ReactNode;
@@ -12,7 +11,7 @@ interface Props {
   picture?: IGatsbyImageData;
 }
 
-const DropdownItem = ({ items, className, isDashboard }: Props) => {
+const DropdownItemList = ({ items, className, isDashboard }: Props) => {
   const getAltImage = (item: any) => {
     if (item.frontmatter.hero_image_alt) {
       const altItem = item.frontmatter.hero_image_alt;
@@ -24,12 +23,7 @@ const DropdownItem = ({ items, className, isDashboard }: Props) => {
   return (
     <>
       {items.map((item: any, i: number) => (
-        <motion.li
-          key={i}
-          className={className}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
-        >
+        <li key={i} className={className}>
           <Link to={item.fields.slug}>
             {isDashboard ? (
               <Card
@@ -37,18 +31,16 @@ const DropdownItem = ({ items, className, isDashboard }: Props) => {
                 showPicture={isDashboard}
                 backgroundImage={getImage(item.frontmatter.image)}
               >
-                <span>
-                  <p>{item.frontmatter.title}</p>
-                </span>
+                <p>{item.frontmatter.title}</p>
               </Card>
             ) : (
               item.frontmatter.title
             )}
           </Link>
-        </motion.li>
+        </li>
       ))}
     </>
   );
 };
 
-export default DropdownItem;
+export default DropdownItemList;

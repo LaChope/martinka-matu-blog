@@ -12,7 +12,7 @@ interface Props {
   isDashboard: boolean;
 }
 
-const SlideShow = ({ children, numberOfItems, isDashboard }: Props) => {
+const SlideShow = ({ children, numberOfItems, isDashboard, className }: Props) => {
   const [translate, setTranslate] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -65,6 +65,7 @@ const SlideShow = ({ children, numberOfItems, isDashboard }: Props) => {
         variants={isDashboard ? dashboardVariants : navbarVariants}
         initial={isDashboard ? 'hidden' : 'visible'}
         animate={isLoading ? 'hidden' : 'visible' && 'translate'}
+        className={className}
       >
         {children}
       </motion.div>

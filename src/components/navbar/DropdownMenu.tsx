@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import * as navbarStyles from '../../styles/Navbar.module.css';
 // @ts-ignore
 import * as dashboardStyles from '../../styles/Dashboard.module.css';
-import DropdownItem from './DropdownItem';
+import DropdownItemList from './DropdownItemList';
 import SlideShow from '../SlideShow';
 
 interface Props {
@@ -34,13 +34,9 @@ const DropdownMenu = ({
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <div className={dropdownClassName.blur} />
-        <SlideShow
-          className="slideshow"
-          numberOfItems={dropdownItems.length}
-          isDashboard={isDashboard}
-        >
+        <SlideShow numberOfItems={dropdownItems.length} isDashboard={isDashboard}>
           <ul className={dropdownClassName.dropdownItems}>
-            <DropdownItem
+            <DropdownItemList
               items={dropdownItems}
               className={dropdownClassName.dropdownItem}
               isDashboard={isDashboard}

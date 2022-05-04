@@ -4,7 +4,6 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
-
 // import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
 import HeroImage from '../components/HeroImage';
@@ -23,7 +22,7 @@ const BlogIndex = ({ data }: Props) => {
 
   if (posts.length === 0) {
     return (
-      <Layout pageTitle={siteTitle}>
+      <Layout pageTitle={siteTitle} url="/">
         <SEO title="All posts" />
         <Bio />
         <p>
@@ -71,15 +70,18 @@ const BlogIndex = ({ data }: Props) => {
       {/*    })}*/}
       {/*</ol>*/}
       <Logo className="logo" />
-      <HeroImage
-        gatsbyImage={image}
-        imageAlt="Seychelles"
-        // style={{ transform: 'rotateY(180deg)' }}
-      >
-        {/*<Hero videoSrcUrl={"https://www.youtube.com/watch?v=LXb3EKWsInQ"} videoTitle={"Video Hero"} >*/}
+      {/*<HeroImage*/}
+      {/*  gatsbyImage={image}*/}
+      {/*  imageAlt="Seychelles"*/}
+      {/*  // style={{ transform: 'rotateY(180deg)' }}*/}
+      {/*>*/}
+      <HeroVideo
+        videoSrcUrl={'https://www.youtube.com/watch?v=LXb3EKWsInQ'}
+        videoTitle={'Video Hero'}>
         <h1>Martinka Matu</h1>
         <h2>Your trip starts now.</h2>
-      </HeroImage>
+      </HeroVideo>
+      {/*</HeroImage>*/}
       {/*<InfoDashboard />*/}
       {/*<div className={styles.mainSection}>*/}
       {/*  <div className={styles.el1}>Element1</div>*/}

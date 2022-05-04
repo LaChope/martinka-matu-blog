@@ -5,6 +5,7 @@ image: './post1.jpg'
 hero_image_alt: 'tropics sea'
 hero_image_credit_text: 'Me'
 hero_title: 'My first post'
+region: 'africa'
 ---
 
 This is my first blog post! Isn't it _great_?

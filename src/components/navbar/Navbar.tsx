@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 // @ts-ignore
 import * as navbarStyles from '../../styles/Navbar.module.css';
@@ -56,10 +56,10 @@ const Navbar = ({ className }: Props) => {
   }, [mediaQuery]);
 
   const posts = data.allMarkdownRemark.nodes;
-  const slider = {
-    close: { x: '-100%', transition: { duration: 0.5, ease: 'easeInOut' } },
-    open: { x: 0, transition: { duration: 0.5, ease: 'easeInOut' } }
-  };
+  // const slider = {
+  //   close: { x: '-100%', transition: { duration: 0.5, ease: 'easeInOut' } },
+  //   open: { x: 0, transition: { duration: 0.5, ease: 'easeInOut' } }
+  // };
 
   const fade = {
     close: { opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } },

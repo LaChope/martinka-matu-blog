@@ -7,14 +7,27 @@ interface Props {
   videoSrcUrl: string;
   videoTitle: string;
   className?: string;
+  videoStartTime?: number;
+  videoEndTime?: number;
 }
 
-const Video = ({ videoSrcUrl, videoTitle, className = styles.videoContainer }: Props) => {
+const Video = ({
+  videoSrcUrl,
+  videoTitle,
+  videoStartTime,
+  videoEndTime,
+  className = styles.videoContainer
+}: Props) => {
   const getEmbedLink = () => {
     const youtubeLink: string = videoSrcUrl.replace('watch?v=', 'embed/');
     const videoId: string = youtubeLink.replace(/.*[#\/]/, '');
     const youtubeParameters =
-      '?controls=0&autoplay=1&loop=1&mute=1&modestbranding=1&loop=1&playlist=' + videoId;
+      '?controls=0&autoplay=1&loop=1&mute=1&modestbranding=1&loop=1&playlist=' +
+      videoId +
+      '&start=' +
+      videoStartTime +
+      '&end=' +
+      videoEndTime;
 
     return youtubeLink + youtubeParameters;
   };

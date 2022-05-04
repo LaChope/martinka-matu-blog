@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 50vh;
+  width: 100vw;
+}
+
+.item {
+  padding: 5rem;
+}
+
+.item p {
+  z-index: 1;
+}

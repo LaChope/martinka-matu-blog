@@ -23,6 +23,8 @@ const BlogPostTemplate = ({ data }) => {
           videoSrcUrl={post.frontmatter.video}
           videoTitle={post.frontmatter.video_title}
           heroTitle={post.frontmatter.hero_title}
+          videoStartTime={post.frontmatter.video_start_time}
+          videoEndTime={post.frontmatter.video_end_time}
         />
       )}
       {image && (
@@ -61,8 +63,7 @@ const BlogPostTemplate = ({ data }) => {
             justifyContent: `space-between`,
             listStyle: `none`,
             padding: 0
-          }}
-        >
+          }}>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -103,6 +104,8 @@ export const pageQuery = graphql`
         hero_image_alt
         hero_title
         video
+        video_start_time
+        video_end_time
         image {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
