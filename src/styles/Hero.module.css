@@ -41,7 +41,7 @@ h2 {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  /*opacity: 0.9;*/
+  opacity: 0.9;
   z-index: -1;
 }
 
@@ -60,10 +60,4 @@ h2 {
   left: 0;
   top: 0;
   border: 0;
-}
-
-@media screen and(max-width: 1920px) {
-  .video-container {
-    padding-bottom: 75%;
-  }
 }

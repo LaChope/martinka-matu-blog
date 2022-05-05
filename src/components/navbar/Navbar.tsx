@@ -47,13 +47,7 @@ const Navbar = ({ className }: Props) => {
     }
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
-
-  const [isMobile, setIsMobile] = useState<boolean>(true);
-  const mediaQuery = useMediaQuery({ maxWidth: 1024 });
-
-  useEffect(() => {
-    setIsMobile(mediaQuery);
-  }, [mediaQuery]);
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   const posts = data.allMarkdownRemark.nodes;
   // const slider = {
@@ -87,8 +81,7 @@ const Navbar = ({ className }: Props) => {
           className="toggle-navbar"
           onClick={onClickToggleNavbar}
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
+          whileTap={{ scale: 0.9 }}>
           {toggleNavbar ? <MdClose /> : <GiHamburgerMenu />}
         </motion.div>
       )}
@@ -97,8 +90,7 @@ const Navbar = ({ className }: Props) => {
         className={navStyle.mainNav}
         variants={isMobile ? fade : noAnimation}
         initial={isMobile ? 'close' : 'open'}
-        animate={toggleNavbar ? 'open' : 'close'}
-      >
+        animate={toggleNavbar ? 'open' : 'close'}>
         <ul className={navStyle.navLinkItems}>
           {!isDashboard && (
             <>

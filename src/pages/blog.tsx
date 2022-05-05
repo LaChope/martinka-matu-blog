@@ -8,6 +8,7 @@ import Card from '../components/Card';
 // @ts-ignore
 import * as blogPageStyles from '../styles/BlogPage.module.css';
 import { getImage } from 'gatsby-plugin-image';
+import ResponsiveHero from '../components/Hero/ResponsiveHero';
 
 interface Props {
   data: any;
@@ -26,12 +27,15 @@ const BlogPage = ({ data }: Props) => {
 
   return (
     <Layout pageTitle="DESTINATIONS" url="/blog">
-      <HeroVideo
+      <ResponsiveHero
         videoSrcUrl="https://www.youtube.com/watch?v=JZi6QRgrM4k"
         videoTitle="Seychelles || DJI Spark footage"
         heroTitle="DESTINATIONS"
         videoStartTime={21}
+        gatsbyImage={getImage(posts[0].frontmatter.image)}
+        imageAlt={getAltImage(posts[0])}
       />
+
       <div className={blogPageStyles.container}>
         {posts.map((post: any, index: number) => (
           <div key={index} className={blogPageStyles.item}>

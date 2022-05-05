@@ -17,12 +17,7 @@ interface Props {
 }
 
 const ResponsiveHero: FC<Props> = (props) => {
-  const [isMobile, setIsMobile] = useState<boolean>(true);
-  const mediaQuery = useMediaQuery({ maxWidth: 1024 });
-
-  useEffect(() => {
-    setIsMobile(mediaQuery);
-  }, [mediaQuery]);
+  const isMobile = useMediaQuery({ maxAspectRatio: '16/9' });
 
   return (
     <>

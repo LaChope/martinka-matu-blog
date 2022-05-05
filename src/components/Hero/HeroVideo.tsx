@@ -11,6 +11,7 @@ interface Props {
   heroTitle?: string;
   videoStartTime?: number;
   videoEndTime?: number;
+  classname?: string;
 }
 
 const HeroVideo = ({
@@ -28,6 +29,7 @@ const HeroVideo = ({
         {children}
       </div>
       <Video
+        classname={styles.videoContainer}
         videoSrcUrl={videoSrcUrl}
         videoTitle={videoTitle}
         videoStartTime={videoStartTime}
@@ -37,7 +39,7 @@ const HeroVideo = ({
   );
 };
 
-const Video = ({ videoSrcUrl, videoTitle, videoStartTime, videoEndTime }: Props) => {
+const Video = ({ videoSrcUrl, videoTitle, videoStartTime, videoEndTime, classname }: Props) => {
   const getEmbedLink = () => {
     const youtubeLink: string = videoSrcUrl.replace('watch?v=', 'embed/');
     const videoId: string = youtubeLink.replace(/.*[#\/]/, '');
@@ -53,7 +55,7 @@ const Video = ({ videoSrcUrl, videoTitle, videoStartTime, videoEndTime }: Props)
   };
 
   return (
-    <div className={styles.videoContainer}>
+    <div className={classname}>
       <iframe src={getEmbedLink()} title={videoTitle} allowFullScreen frameBorder="0" />
     </div>
   );
