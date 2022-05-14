@@ -47,7 +47,12 @@ const Navbar = ({ className }: Props) => {
     }
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
-  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const mediaQuery = useMediaQuery({ maxWidth: 1024 });
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    setIsMobile(mediaQuery);
+  });
 
   const posts = data.allMarkdownRemark.nodes;
   // const slider = {
