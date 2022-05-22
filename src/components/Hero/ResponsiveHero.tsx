@@ -23,7 +23,7 @@ const ResponsiveHero: FC<Props> = (props) => {
 
   useEffect(() => {
     setIsMobile(mediaQuery)
-  })
+  }, [])
 
   return (
     <>
