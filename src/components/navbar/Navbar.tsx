@@ -48,13 +48,11 @@ const Navbar = ({ className }: Props) => {
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
 
-  // const isMobile = useMediaQuery({ maxWidth: 1024 });
   const [isMobile, setIsMobile] = useState<boolean>(true);
   const mediaQuery = useMediaQuery({ maxWidth: 1024 })
 
   useEffect(() => {
     setIsMobile(mediaQuery);
-    console.log("mobile")
   });
 
   const posts = data.allMarkdownRemark.nodes;
