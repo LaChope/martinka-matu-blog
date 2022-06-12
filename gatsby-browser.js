@@ -6,7 +6,7 @@ import 'typeface-merriweather';
 // custom CSS styles
 import './src/styles/global.css';
 import './src/styles/Footer.module.css';
-import './src/styles/Hero.module.css';
+import './src/styles/ResponsiveHero.module.css';
 import './src/styles/Navbar.module.css';
 import './src/styles/Homepage.module.css';
 import './src/styles/Dashboard.module.css';

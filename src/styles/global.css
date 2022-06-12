@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');*/
+
+@font-face {
+  font-family: 'MyGaia';
+  src: url('./assets/Gaia-Regular.woff2') format('woff2'),
+  url('./assets/Gaia-Regular.woff') format('woff'),
+  url('./assets/Gaia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   margin: 0;
@@ -17,7 +27,8 @@ body {
 }
 
 body {
-  background: radial-gradient(at top left, rgb(247, 35, 36) 0%, rgb(89, 125, 176) 100%) no-repeat;
+  font-family: MyGaia, sans-serif;
+  background: radial-gradient(at top left, rgb(247, 35, 36) 0%, rgb(89, 125, 176) 100%) no-repeat fixed;
 }
 
 p {
@@ -37,7 +48,7 @@ p {
   right: 5%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
   .toggle-navbar {
     position: fixed;
     top: 5%;

@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 
 // @ts-ignore
-import * as styles from '../../styles/Hero.module.css';
-// import Video from './Video';
+import * as styles from '../../styles/ResponsiveHero.module.css';
 
 interface Props {
   children?: ReactNode;
@@ -23,19 +22,19 @@ const HeroVideo = ({
   videoEndTime
 }: Props) => {
   return (
-    <div className={styles.hero}>
-      <div className={styles.heroContent}>
+    <>
+      <div className={styles.content}>
         <h1>{heroTitle}</h1>
         {children}
       </div>
       <Video
-        classname={styles.videoContainer}
+        classname={styles.video}
         videoSrcUrl={videoSrcUrl}
         videoTitle={videoTitle}
         videoStartTime={videoStartTime}
         videoEndTime={videoEndTime}
       />
-    </div>
+    </>
   );
 };
 

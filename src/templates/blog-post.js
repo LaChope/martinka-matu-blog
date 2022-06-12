@@ -20,24 +20,33 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      {video && image && (
-        <ResponsiveHero
-          gatsbyImage={image}
-          imageAlt={post.frontmatter.hero_image_alt}
-          heroTitle={post.frontmatter.hero_title}
-          videoSrcUrl={video}
-          videoTitle={post.frontmatter.video_title}
-          videoStartTime={post.frontmatter.video_start_time}
-          videoEndTime={post.frontmatter.video_end_time}
-        />
-      )}
-      {image && !video && (
-        <HeroImage
-          gatsbyImage={image}
-          imageAlt={post.frontmatter.hero_image_alt}
-          heroTitle={post.frontmatter.hero_title}
-        />
-      )}
+      {/*{video && image && (*/}
+      {/*  <ResponsiveHero*/}
+      {/*    gatsbyImage={image}*/}
+      {/*    imageAlt={post.frontmatter.hero_image_alt}*/}
+      {/*    heroTitle={post.frontmatter.hero_title}*/}
+      {/*    videoSrcUrl={video}*/}
+      {/*    videoTitle={post.frontmatter.video_title}*/}
+      {/*    videoStartTime={post.frontmatter.video_start_time}*/}
+      {/*    videoEndTime={post.frontmatter.video_end_time}*/}
+      {/*  />*/}
+      {/*)}*/}
+      {/*{image && !video && (*/}
+      {/*  <HeroImage*/}
+      {/*    gatsbyImage={image}*/}
+      {/*    imageAlt={post.frontmatter.hero_image_alt}*/}
+      {/*    heroTitle={post.frontmatter.hero_title}*/}
+      {/*  />*/}
+      {/*)}*/}
+
+      <ResponsiveHero
+        gatsbyImage={image}
+        imageAlt={post.frontmatter.hero_image_alt}
+        videoSrcUrl={video}
+        videoTitle={post.frontmatter.video_title}
+        videoStartTime={post.frontmatter.video_start_time}
+        videoEndTime={post.frontmatter.video_end_time}
+      />
       <p>{post.frontmatter.date}</p>
       <section dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
       {/*<article*/}

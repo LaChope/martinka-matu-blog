@@ -41,8 +41,7 @@ const NavbarItem = ({ url, text, children, className = styles.navLinkItem }: Pro
         className={className}
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}
-        onClick={onClickHandler}
-      >
+        onClick={onClickHandler}>
         <Link to={url}>
           {text}
           {/*{children}*/}

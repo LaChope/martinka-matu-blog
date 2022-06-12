@@ -23,21 +23,18 @@ const DropdownItemList = ({ items, className, isDashboard }: Props) => {
   return (
     <>
       {items.map((item: any, i: number) => (
-        <li key={i} className={className}>
-          <Link to={item.fields.slug}>
-            {isDashboard ? (
-              <Card
-                alt={getAltImage(item)}
-                showPicture={isDashboard}
-                backgroundImage={getImage(item.frontmatter.image)}
-              >
-                <p>{item.frontmatter.title}</p>
-              </Card>
-            ) : (
-              item.frontmatter.title
-            )}
-          </Link>
-        </li>
+        <Link key={i} className={className} to={item.fields.slug}>
+          {isDashboard ? (
+            <Card
+              alt={getAltImage(item)}
+              showPicture={isDashboard}
+              backgroundImage={getImage(item.frontmatter.image)}>
+              <p>{item.frontmatter.title}</p>
+            </Card>
+          ) : (
+            item.frontmatter.title
+          )}
+        </Link>
       ))}
     </>
   );

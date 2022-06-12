@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaYoutube } from 'react-icons/all';
+import { FaInstagram, FaYoutube } from 'react-icons/fa';
 // @ts-ignore
 import * as styles from '../styles/Navbar.module.css';
 

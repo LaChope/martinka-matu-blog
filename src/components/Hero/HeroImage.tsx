@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 // @ts-ignore
-import { hero, heroContent, imageContainer } from '../../styles/Hero.module.css';
+import { content, image } from '../../styles/ResponsiveHero.module.css';
 
 interface Props {
   gatsbyImage: IGatsbyImageData | any;
@@ -14,13 +14,13 @@ interface Props {
 
 const HeroImage = ({ gatsbyImage, imageAlt, heroTitle, style, children }: Props) => {
   return (
-    <div className={hero}>
-      <div className={heroContent}>
+    <>
+      <div className={content}>
         <h1>{heroTitle}</h1>
         {children}
       </div>
-      <GatsbyImage className={imageContainer} alt={imageAlt} image={gatsbyImage} style={style} />
-    </div>
+      <GatsbyImage className={image} alt={imageAlt} image={gatsbyImage} style={style} />
+    </>
   );
 };
 
