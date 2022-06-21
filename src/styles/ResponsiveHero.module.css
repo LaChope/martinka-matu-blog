@@ -82,3 +82,7 @@ h2 {
   font-size: 3.5rem;
   transition: 0.3s;
 }
+
+.no-display {
+  display: none;
+}

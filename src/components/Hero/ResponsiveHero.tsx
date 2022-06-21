@@ -12,7 +12,7 @@ interface Props {
   gatsbyImage: IGatsbyImageData | any;
   imageAlt: string;
   children?: ReactNode;
-  style?: object;
+  classname?: string;
   videoSrcUrl: string;
   videoTitle: string;
   heroTitle?: string;
@@ -47,7 +47,7 @@ const ResponsiveHero: FC<Props> = (props) => {
         </HeroVideo>
       )}
       <FaChevronCircleDown
-        className={styles.arrowDown}
+        className={props.classname === 'index' ? styles.noDisplay : styles.arrowDown}
         onClick={() => {
           scrollBy(0, innerHeight - innerHeight / 10);
         }}

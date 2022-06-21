@@ -72,6 +72,7 @@ const BlogIndex = ({ data }: Props) => {
       {/*</ol>*/}
       <Logo className="logo" />
       <ResponsiveHero
+        classname="index"
         gatsbyImage={image}
         imageAlt={'Seychelles'}
         videoSrcUrl={'https://www.youtube.com/watch?v=LXb3EKWsInQ'}
