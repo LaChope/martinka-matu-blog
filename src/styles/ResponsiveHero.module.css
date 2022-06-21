@@ -24,7 +24,7 @@ h2 {
   border-left: 0;
   overflow: hidden;
   background-color: black;
-  z-index: -1;
+  z-index: 1;
   /*font-family: Gaia;*/
   font-weight: bold;
 }
@@ -75,9 +75,10 @@ h2 {
   z-index: 1000000;
   font-size: 3rem;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/*.arrow-down:hover {*/
-/*  font-size: 4rem;*/
-/*  cursor: pointer;*/
-/*}*/
+.arrow-down:hover {
+  font-size: 3.5rem;
+  transition: 0.3s;
+}

@@ -4,7 +4,6 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 import HeroImage from './HeroImage';
 import HeroVideo from './HeroVideo';
 import { FaChevronCircleDown } from 'react-icons/fa';
-import { motion } from 'framer-motion';
 
 // @ts-ignore
 import * as styles from '../../styles/ResponsiveHero.module.css';
@@ -47,12 +46,12 @@ const ResponsiveHero: FC<Props> = (props) => {
           {props.children}
         </HeroVideo>
       )}
-      <motion.div
+      <FaChevronCircleDown
         className={styles.arrowDown}
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}>
-        <FaChevronCircleDown />
-      </motion.div>
+        onClick={() => {
+          scrollBy(0, innerHeight - innerHeight / 10);
+        }}
+      />
     </div>
   );
 };
