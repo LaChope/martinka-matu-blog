@@ -46,6 +46,7 @@ const BlogPostTemplate = ({ data }) => {
         videoTitle={post.frontmatter.video_title}
         videoStartTime={post.frontmatter.video_start_time}
         videoEndTime={post.frontmatter.video_end_time}
+        heroTitle={post.frontmatter.title}
       />
       <p>{post.frontmatter.date}</p>
       <section dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
