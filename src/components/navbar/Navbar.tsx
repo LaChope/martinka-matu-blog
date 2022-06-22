@@ -48,8 +48,7 @@ const Navbar = ({ className }: Props) => {
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
   const mediaQuery = useMediaQuery({ maxWidth: 1400 });
-  const [isMobile, setIsMobile] = useState<boolean>(true);
-  const windowWidth = window.innerWidth;
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMobile(mediaQuery);
@@ -62,8 +61,16 @@ const Navbar = ({ className }: Props) => {
   // };
 
   const fade = {
-    close: { opacity: 0, transition: { duration: 0.8, ease: 'easeInOut' }, x: -windowWidth },
-    open: { opacity: 1, transition: { duration: 0.8, ease: 'easeInOut' }, x: 0 }
+    close: {
+      opacity: 0,
+      x: '-100%',
+      transition: { duration: 0.8, ease: 'easeInOut', x: { delay: 0.8, duration: 0.1 } }
+    },
+    open: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.1, ease: 'easeInOut', opacity: { delay: 0.1, duration: 0.8 } }
+    }
   };
 
   const noAnimation = {
