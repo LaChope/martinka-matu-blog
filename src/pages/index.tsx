@@ -6,11 +6,11 @@ import SEO from '../components/SEO';
 
 // import * as styles from '../styles/Homepage.module.css';
 import { graphql } from 'gatsby';
-import HeroImage from '../components/Hero/HeroImage';
+import HeroImage from '../components/hero/HeroImage';
 import Logo from '../components/Logo';
-import HeroVideo from '../components/Hero/HeroVideo';
+import HeroVideo from '../components/hero/HeroVideo';
 import InfoDashboard from '../components/InfoDashboard';
-import ResponsiveHero from '../components/Hero/ResponsiveHero';
+import ResponsiveHero from '../components/hero/ResponsiveHero';
 
 interface Props {
   data: any;

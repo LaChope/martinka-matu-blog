@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
-import HeroVideo from '../components/Hero/HeroVideo';
+import HeroVideo from '../components/hero/HeroVideo';
 import SlideShow from '../components/SlideShow';
 import Card from '../components/Card';
 
 // @ts-ignore
-import * as blogPageStyles from '../styles/BlogPage.module.css';
+import * as styles from '../styles/BlogIndex.module.css';
 import { getImage } from 'gatsby-plugin-image';
-import ResponsiveHero from '../components/Hero/ResponsiveHero';
+import ResponsiveHero from '../components/hero/ResponsiveHero';
 
 interface Props {
   data: any;
@@ -36,9 +36,9 @@ const BlogPage = ({ data }: Props) => {
         imageAlt={getAltImage(posts[0])}
       />
 
-      <div className={blogPageStyles.container}>
+      <div className={styles.container}>
         {posts.map((post: any, index: number) => (
-          <div key={index} className={blogPageStyles.item}>
+          <div key={index} className={styles.item}>
             <Link to={post.fields.slug}>
               <Card
                 alt={getAltImage(post)}
