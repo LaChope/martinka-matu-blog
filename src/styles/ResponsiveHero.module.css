@@ -87,4 +87,8 @@ h2 {
   h2 {
     font-size: 2rem;
   }
+
+  .arrow-down {
+    bottom: 10%;
+  }
 }
