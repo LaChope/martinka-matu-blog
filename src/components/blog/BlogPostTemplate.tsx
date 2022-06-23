@@ -5,7 +5,11 @@ import { getImage } from 'gatsby-plugin-image';
 import Layout from '../Layout';
 import ResponsiveHero from '../hero/ResponsiveHero';
 
-const BlogPostTemplate = ({ data }) => {
+interface Props {
+  data: any;
+}
+
+const BlogPostTemplate = ({ data }: Props) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
@@ -13,7 +17,7 @@ const BlogPostTemplate = ({ data }) => {
   const video = post.frontmatter.video;
 
   return (
-    <Layout pageTitle={siteTitle}>
+    <Layout pageTitle={siteTitle} url={post.fields.slug}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -104,6 +108,9 @@ export const pageQuery = graphql`
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
+      }
+      fields {
+        slug
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

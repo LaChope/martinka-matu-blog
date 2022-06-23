@@ -29,3 +29,4 @@ collections:
       - { label: 'Video Start Time (in seconds)', name: 'video_start_time', widget: 'number', required: false }
       - { label: 'Video End Time (in seconds)', name: 'video_end_time', widget: 'number', required: false }
       - { label: 'Cover Title', name: 'hero_title', widget: 'string', required: false }
+      - { label: 'Images', name: 'images', widget: 'image', required: false }
