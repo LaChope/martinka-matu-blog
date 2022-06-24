@@ -52,7 +52,7 @@ const Navbar = ({ className }: Props) => {
 
   useEffect(() => {
     setIsMobile(mediaQuery);
-  }, [isMobile]);
+  });
 
   const posts = data.allMarkdownRemark.nodes;
   // const slider = {

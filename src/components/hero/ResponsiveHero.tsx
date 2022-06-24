@@ -27,7 +27,7 @@ const ResponsiveHero: FC<Props> = (props) => {
 
   useEffect(() => {
     setIsMobile(mediaQuery);
-  }, [isMobile]);
+  });
 
   return (
     <div className={styles.container}>

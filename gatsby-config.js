@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Martinka Matu Blog`,
     author: {
-      name: `Kyle Mathews`,
+      name: `Max Chopart`,
       summary: `who lives and works in San Francisco building useful things.`
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
@@ -28,13 +28,20 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static-images`,
+        path: `${__dirname}/static/img`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630
+              withWebp: true
             }
           },
           {
