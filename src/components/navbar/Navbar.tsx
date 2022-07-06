@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 // @ts-ignore
 import * as navbarStyles from '../../styles/Navbar.module.css';
@@ -47,13 +47,7 @@ const Navbar = ({ className }: Props) => {
     }
   `);
   const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
-  const mediaQuery = useMediaQuery({ maxWidth: 1400 });
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsMobile(mediaQuery);
-  });
-
+  const isMobile = useMediaQuery({ maxWidth: 1400 });
   const posts = data.allMarkdownRemark.nodes;
   // const slider = {
   //   close: { x: '-100%', transition: { duration: 0.5, ease: 'easeInOut' } },

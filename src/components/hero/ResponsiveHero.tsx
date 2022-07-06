@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import HeroImage from './HeroImage';
@@ -21,13 +21,7 @@ interface Props {
 }
 
 const ResponsiveHero: FC<Props> = (props) => {
-  const mediaQuery = useMediaQuery({ maxAspectRatio: '16/9' });
-
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsMobile(mediaQuery);
-  });
+  const isMobile = useMediaQuery({ maxAspectRatio: '16/10' });
 
   return (
     <div className={styles.container}>
